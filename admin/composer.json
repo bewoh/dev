@@ -4,26 +4,32 @@
     "require": {
         "silex/silex": "1.0.*@dev",
         "doctrine/dbal" : ">=2.2.0,<2.4.0-dev",
-	    "doctrine/orm"  : "*",
-	    "playmedia/smarty" : "dev-master"
+        "doctrine/orm"  : "*",
+        "playmedia/smarty" : "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
     },
     "license": "0.1",
     "authors": [
-        {
-            "name": "michael douglas",
-            "email": "michaeldouglas010790@gmail.com.br",
-            "name" : "Bruno Fonseca",
-            "email": "brucfo@gmail.com"
-        }
+    {
+        "name": "michael douglas",
+        "email": "michaeldouglas010790@gmail.com.br",
+        "name" : "Bruno Fonseca",
+        "email": "brucfo@gmail.com"
+    }
     ],
     "minimum-stability": "dev",
     "autoload":{
-	"psr-0":{"beowh":"biblioteca/"}
+        "classmap": [
+            "biblioteca/beowh/",
+            "biblioteca/teste/",
+            "aplicacao/controlador/",
+            "aplicacao/modelo/",
+            "aplicacao/visualizador/"
+        ]
     },
     "config":{
-	"bin-dir":"bin/"
+        "bin-dir":"bin/"
     }
 }
