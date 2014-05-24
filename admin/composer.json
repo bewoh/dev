@@ -27,7 +27,8 @@
             "aplicacao/controlador/",
             "aplicacao/modelo/",
             "aplicacao/visualizador/"
-        ]
+        ],
+        "psr-0":{"beowh":"biblioteca/"}
     },
     "config":{
         "bin-dir":"bin/"
