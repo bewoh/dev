@@ -22,13 +22,17 @@
     "minimum-stability": "dev",
     "autoload":{
         "classmap": [
-            "biblioteca/beowh/",
-            "biblioteca/teste/",
+            "biblioteca/beowh/Support/",
             "aplicacao/controlador/",
             "aplicacao/modelo/",
             "aplicacao/visualizador/"
         ],
-        "psr-0":{"beowh":"biblioteca/"}
+        "psr-0":{
+            "beowh": "biblioteca/"
+        },
+        "files": [
+            "biblioteca/beowh/Support/helpers.php"
+        ]
     },
     "config":{
         "bin-dir":"bin/"

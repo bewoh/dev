@@ -1,7 +1,6 @@
 <?php
-namespace beowh;
-class t{
+class michaeldouglas{
     public function __construct() {
-        return 1;
+        
     }
 }

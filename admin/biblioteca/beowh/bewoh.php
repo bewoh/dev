@@ -93,7 +93,7 @@ class bewoh {
 
         if(DIRECTORY_SEPARATOR == '/'){
             //LINUX
-            $baseURL = dirname($_SERVER['SCRIPT_NAME']);
+            $baseURL = dirname($_SERVER['SCRIPT_NAME']).'/';
         } else if (DIRECTORY_SEPARATOR == '\\'){
             //WINDOWS
             $baseURL = dirname($_SERVER['SCRIPT_NAME']).'/';

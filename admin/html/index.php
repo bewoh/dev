@@ -1,17 +1,30 @@
 <?php
 /**
+ * Bewoh - A PHP Framework
+ * @package  Bewoh
  * @author Michael Douglas <michaeldouglas010790@gmail.com>
- * @author Bruno Fonseca <>
+ * @author Bruno Fonseca <brucfo@gmail.com>
  */
-date_default_timezone_set('America/Los_Angeles');
-error_reporting(E_ALL);
-ini_set('display_errors','On');
-set_include_path(implode(PATH_SEPARATOR, array(
-    get_include_path(),
-    '../vendor/',
-)));
-require 'autoload.php'; 
+
+/*
+|--------------------------------------------------------------------------
+| Registro de auto load da FrameWork
+|--------------------------------------------------------------------------
+|
+| O Composer irá atuar como ferramenta para gerenciamento de depêndencias da estrutura
+| Porém foi necessário criar o autoload para gerenciar adicionar os novos objetos da
+| estrutura
+|
+*/
+
+require __DIR__.'/../bootstrap/autoload.php';
+\beowh\ClassLoader::addDirectories(array(
+    app_path().'/aplicacao/modelo',
+    app_path().'/aplicacao/teste',
+));
+
+\beowh\ClassLoader::register();
+
 /* Executa a aplicação da bewoh */
 $bewoh = new \beowh\bewoh();
-
 $bewoh->run('',new Smarty());

@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/drak/smarty/Smarty/Smarty.class.php',
+    $baseDir . '/biblioteca/beowh/Support/helpers.php',
 );

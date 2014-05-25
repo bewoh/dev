@@ -1,5 +1,5 @@
 <?php
-class usuario {
+class michael {
     public function index($templateEngine,$caminhoTemplate){
         $templateEngine->assign('nomeModelo',$caminhoTemplate);
         $templateEngine->assign('nomeTeste','Bruno !!!');
