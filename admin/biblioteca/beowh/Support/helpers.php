@@ -3,7 +3,7 @@
 if ( ! function_exists('action'))
 {
 	/**
-	 * Generate a URL to a controller action.
+	 * Chama o action do método
 	 *
 	 * @param  string  $name
 	 * @param  array   $parameters
@@ -18,7 +18,7 @@ if ( ! function_exists('action'))
 if ( ! function_exists('app'))
 {
 	/**
-	 * Get the root Facade application instance.
+	 * Obtém o root da aplicação
 	 *
 	 * @param  string  $make
 	 * @return mixed
@@ -35,7 +35,7 @@ if ( ! function_exists('app'))
 if ( ! function_exists('app_path'))
 {
 	/**
-	 * Get the path to the application folder.
+	 * Obtém a pasta para o sistema de autoload
 	 *
 	 * @param   string  $path
 	 * @return  string

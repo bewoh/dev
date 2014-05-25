@@ -1,25 +1,24 @@
 <?php
-
 namespace beowh;
 
 class ClassLoader {
 
 	/**
-	 * The registered directories.
+	 * Registra os diretórios da aplicação
 	 *
 	 * @var array
 	 */
 	protected static $directories = array();
 
 	/**
-	 * Indicates if a ClassLoader has been registered.
+	 * Indica se o arquivo foi carregado
 	 *
 	 * @var bool
 	 */
 	protected static $registered = false;
 
 	/**
-	 * Load the given class file.
+	 * Carrega os arquivos
 	 *
 	 * @param  string  $class
 	 * @return void
@@ -40,7 +39,7 @@ class ClassLoader {
 	}
 
 	/**
-	 * Get the normal file name for a class.
+	 * Obtém o nome após realizar um filtro
 	 *
 	 * @param  string  $class
 	 * @return string
@@ -53,7 +52,7 @@ class ClassLoader {
 	}
 
 	/**
-	 * Register the given class loader on the auto-loader stack.
+	 * A chamar o método é registrado o arquivo e a estancia já pode esr chamada
 	 *
 	 * @return void
 	 */
@@ -66,7 +65,7 @@ class ClassLoader {
 	}
 
 	/**
-	 * Add directories to the class loader.
+	 * Método responsável por adicionar os diretorios
 	 *
 	 * @param  string|array  $directories
 	 * @return void
@@ -79,7 +78,7 @@ class ClassLoader {
 	}
 
 	/**
-	 * Remove directories from the class loader.
+	 * Retira diretorios adicionados 
 	 *
 	 * @param  string|array  $directories
 	 * @return void
@@ -102,7 +101,7 @@ class ClassLoader {
 	}
 
 	/**
-	 * Gets all the directories registered with the loader.
+	 * Retorna todos os diretorios e arquivos chamados
 	 *
 	 * @return array
 	 */
