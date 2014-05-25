@@ -1,9 +1,8 @@
 <?php
 /**
- * Bewoh - A PHP Framework
+ * Bewoh - THE PHP FRAMEWORK WOLF PACK
  * @package  Bewoh
  * @author Michael Douglas <michaeldouglas010790@gmail.com>
- * @author Bruno Fonseca <brucfo@gmail.com>
  */
 
 /*
@@ -18,13 +17,26 @@
 */
 
 require __DIR__.'/../bootstrap/autoload.php';
-\beowh\ClassLoader::addDirectories(array(
-    app_path().'/aplicacao/modelo',
-    app_path().'/aplicacao/teste',
-));
 
-\beowh\ClassLoader::register();
+/*
+|--------------------------------------------------------------------------
+| Configurações iniciais
+|--------------------------------------------------------------------------
+|
+| Em bootstrap init são realizados as configurações para execução da aplicação
+|
+*/
 
-/* Executa a aplicação da bewoh */
-$bewoh = new \beowh\bewoh();
+$bewoh = require_once __DIR__.'/../bootstrap/init.php';
+
+/*
+|--------------------------------------------------------------------------
+| Execução do run da aplicação
+|--------------------------------------------------------------------------
+|
+| Após todas as configurações feitas será chamado o método que executa o 
+| o framework e com suas configurações já feitas.
+|
+*/
+
 $bewoh->run('',new Smarty());

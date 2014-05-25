@@ -11,15 +11,5 @@ define('BEWOH_START', microtime(true));
 */
 require __DIR__.'/../vendor/autoload.php';
 
-/*
-function autoloadModel($className) {
-    $vendorDir = dirname(dirname(__FILE__));
-    $baseDir = dirname($vendorDir);    
-    $filename = $baseDir."/admin/aplicacao/modelo/" . $className . ".php";
-    echo $filename;
-    if (is_readable($filename)) {
-        require $filename;
-    }
-}
-
-spl_autoload_register("autoloadModel");*/
+\beowh\ClassLoader::addDirectories(require __DIR__.'/arquivos.php');
+\beowh\ClassLoader::register();

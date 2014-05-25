@@ -1,6 +1,5 @@
 <?php
 namespace beowh;
-
 class bewoh {
 
     private $_url;
@@ -20,8 +19,8 @@ class bewoh {
     }
 
     private function setUrl() {
-        if(isset($_GET)){
-            if(array_key_exists('url',$_GET)){
+        if (isset($_GET)) {
+            if (array_key_exists('url', $_GET)) {
                 $_GET['url'] = ($_GET['url'] != "" ? $_GET['url'] : 'index/index');
                 $this->_url = $_GET['url'];
             }
@@ -75,6 +74,7 @@ class bewoh {
         else
             return $this->_params;
     }
+
     /**
      * 
      * @author Michael Douglas Barbosa Araujo
@@ -84,43 +84,42 @@ class bewoh {
      * @access public
      * @example $bewoh->run('',$templateEngine) Exemplo com a chamado para o executador da aplicação
      */
-    public function run($pastaLayout = '',$templateEngine) {
+    public function run($pastaLayout = '', $templateEngine) {
 
-        $templateEngine->setTemplateDir($this->_caminhoVisualizador.'layout/')
-                ->setCompileDir($this->_caminhoVisualizador.'compilador/')
-                ->setConfigDir($this->_caminhoVisualizador.'config/')
-                ->setCacheDir($this->_caminhoVisualizador.'cache/');
+        $templateEngine->setTemplateDir($this->_caminhoVisualizador . 'layout/')
+                ->setCompileDir($this->_caminhoVisualizador . 'compilador/')
+                ->setConfigDir($this->_caminhoVisualizador . 'config/')
+                ->setCacheDir($this->_caminhoVisualizador . 'cache/');
 
-        if(DIRECTORY_SEPARATOR == '/'){
+        if (DIRECTORY_SEPARATOR == '/') {
             //LINUX
-            $baseURL = dirname($_SERVER['SCRIPT_NAME']).'/';
-        } else if (DIRECTORY_SEPARATOR == '\\'){
+            $baseURL = dirname($_SERVER['SCRIPT_NAME']) . '/';
+        } else if (DIRECTORY_SEPARATOR == '\\') {
             //WINDOWS
-            $baseURL = dirname($_SERVER['SCRIPT_NAME']).'/';
-        }      
-        
+            $baseURL = dirname($_SERVER['SCRIPT_NAME']) . '/';
+        }
+
         $templateEngine->assign('baseUrl', str_replace('\\', '', $baseURL));
-        
+
         $controller_path = $this->_caminhoControlador . $this->_controller . '.class.php';
-        
-        $templateEngine->assign('tituloPagina','Bewoh - Admin');
-        
+
+        $templateEngine->assign('tituloPagina', 'Bewoh - Admin');
+
         if (file_exists($controller_path)) {
             require_once($controller_path);
             $app = new $this->_controller();
             if (method_exists($app, $this->_action)) {
-                $caminhoModelo = '../camadas/'.$this->_controller.'/'.$this->_action.'.tpl';
-                
+                $caminhoModelo = '../camadas/' . $this->_controller . '/' . $this->_action . '.tpl';
+
                 $action = $this->_action;
-                $app->$action($templateEngine,$caminhoModelo);
-                
+                $app->$action($templateEngine, $caminhoModelo);
             } else {
                 $controller_path = $this->_caminhoControlador . 'erro.class.php';
                 $caminhoModelo = '../camadas/erro/erro500.tpl';
                 require_once($controller_path);
                 $app = new erro();
                 $action = 'erro500';
-                $app->$action($templateEngine,$caminhoModelo);
+                $app->$action($templateEngine, $caminhoModelo);
             }
         } else {
             $controller_path = $this->_caminhoControlador . 'erro.class.php';
@@ -128,9 +127,9 @@ class bewoh {
             require_once($controller_path);
             $app = new erro();
             $action = 'erro400';
-            $app->$action($templateEngine,$caminhoModelo);
-            
+            $app->$action($templateEngine, $caminhoModelo);
         }
-        $templateEngine->display($pastaLayout.'index.tpl');
+        $templateEngine->display($pastaLayout . 'index.tpl');
     }
+
 }
